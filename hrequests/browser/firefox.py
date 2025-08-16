@@ -11,7 +11,7 @@ class FirefoxBrowserClient(AbstractBrowserClient):
         # Create a Camoufox browser
         browser = await AsyncNewBrowser(
             self.engine.playwright,
-            geoip=launch_args.get('geoip', bool(self.proxy)),
+            geoip=launch_args.pop('geoip', bool(self.proxy)),
             proxy=self.proxy,
             ff_version=launch_args.pop('version', None),
             i_know_what_im_doing=True,
